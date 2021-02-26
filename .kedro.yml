@@ -1,0 +1,6 @@
+context_path: allegro_test.run.ProjectContext
+project_name: "allegro_test"
+project_version: "0.16.6"
+package_name: "allegro_test"
+hooks:
+  - allegro_test.hooks.project_hooks

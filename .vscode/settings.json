@@ -1,0 +1,12 @@
+{
+    "workbench.colorCustomizations": {
+        "editorGroup.border": "#c9f2bd",
+        "panel.border": "#c9f2bd",
+        "sideBar.border": "#c9f2bd",
+        "tab.activeBorder": "#c9f2bd",
+        "titleBar.activeBackground": "#a6e993",
+        "titleBar.activeForeground": "#15202b",
+        "titleBar.inactiveBackground": "#a6e99399",
+        "titleBar.inactiveForeground": "#15202b99"
+    }
+}
