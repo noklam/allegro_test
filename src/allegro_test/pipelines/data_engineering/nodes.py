@@ -35,6 +35,10 @@ from typing import Any, Dict
 
 import pandas as pd
 
+from datetime import datetime
+from clearml import Task
+
+task = Task.init(project_name='examples', task_name='hello world')
 
 def split_data(data: pd.DataFrame, example_test_data_ratio: float) -> Dict[str, Any]:
     """Node for splitting the classical Iris data set into training and test
@@ -43,6 +47,11 @@ def split_data(data: pd.DataFrame, example_test_data_ratio: float) -> Dict[str, 
     The data and the parameters will be loaded and provided to your function
     automatically when the pipeline is executed and it is time to run this node.
     """
+
+
+
+
+
     data.columns = [
         "sepal_length",
         "sepal_width",
