@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Copyright 2020 QuantumBlack Visual Analytics Limited
+# Copyright 2021 QuantumBlack Visual Analytics Limited
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -55,7 +55,7 @@ from allegro_test import __version__ as release
 # -- Project information -----------------------------------------------------
 
 project = "allegro_test"
-copyright = "2020, QuantumBlack Visual Analytics Limited"
+copyright = "2021, QuantumBlack Visual Analytics Limited"
 author = "QuantumBlack"
 
 # The short X.Y version.
@@ -149,7 +149,7 @@ html_show_sourcelink = False
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "allegro_testdoc"
+htmlhelp_basename = "allegro_test2doc"
 
 # -- Options for LaTeX output ------------------------------------------------
 
@@ -177,8 +177,8 @@ latex_elements = {
 latex_documents = [
     (
         master_doc,
-        "allegro_test.tex",
-        "allegro_test Documentation",
+        "allegro_test2.tex",
+        "allegro_test2 Documentation",
         "QuantumBlack",
         "manual",
     )
@@ -191,8 +191,8 @@ latex_documents = [
 man_pages = [
     (
         master_doc,
-        "allegro_test",
-        "allegro_test Documentation",
+        "allegro_test2",
+        "allegro_test2 Documentation",
         [author],
         1,
     )
@@ -206,11 +206,11 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        "allegro_test",
-        "allegro_test Documentation",
+        "allegro_test2",
+        "allegro_test2 Documentation",
         author,
-        "allegro_test",
-        "Project allegro_test codebase.",
+        "allegro_test2",
+        "Project allegro_test2 codebase.",
         "Data-Science",
     )
 ]

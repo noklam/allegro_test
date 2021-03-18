@@ -26,40 +26,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from setuptools import find_packages, setup
+"""Project pipelines."""
+from typing import Dict
 
-entry_point = (
-    "allegro_test = allegro_test.__main__:main"
-)
+from kedro.pipeline import Pipeline
+from allegro_test.pipelines import data_engineering as de
+from allegro_test.pipelines import data_science as ds
 
+def register_pipelines() -> Dict[str, Pipeline]:
+    """Register the project's pipelines.
 
-# get the dependencies and installs
-with open("requirements.txt", "r", encoding="utf-8") as f:
-    # Make sure we strip all comments and options (e.g "--extra-index-url")
-    # that arise from a modified pip.conf file that configure global options
-    # when running kedro build-reqs
-    requires = []
-    for line in f:
-        req = line.split("#", 1)[0].strip()
-        if req and not req.startswith("--"):
-            requires.append(req)
+    Returns:
+        A mapping from a pipeline name to a ``Pipeline`` object.
+    """
+    print("**************************************************")
 
-setup(
-    name="allegro_test",
-    version="0.1",
-    packages=find_packages(exclude=["tests"]),
-    entry_points={"console_scripts": [entry_point]},
-    install_requires=requires,
-    extras_require={
-        "docs": [
-            "sphinx~=3.4.3",
-            "sphinx_rtd_theme==0.5.1",
-            "nbsphinx==0.8.1",
-            "nbstripout==0.3.3",
-            "recommonmark==0.7.1",
-            "sphinx-autodoc-typehints==1.11.1",
-            "sphinx_copybutton==0.3.1",
-            "ipykernel~=5.3",
-        ]
-    },
-)
+    data_engineering_pipeline = de.create_pipeline()
+    data_science_pipeline = ds.create_pipeline()
+    return {
+        "__default__": data_engineering_pipeline + data_science_pipeline
+        }

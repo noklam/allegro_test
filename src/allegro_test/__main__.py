@@ -25,41 +25,20 @@
 #
 # See the License for the specific language governing permissions and
 # limitations under the License.
+"""allegro_test file for ensuring the package is executable
+as `allegro_test` and `python -m allegro_test`
+"""
+from pathlib import Path
 
-from setuptools import find_packages, setup
+from kedro.framework.project import configure_project
 
-entry_point = (
-    "allegro_test = allegro_test.__main__:main"
-)
+from .cli import run
 
 
-# get the dependencies and installs
-with open("requirements.txt", "r", encoding="utf-8") as f:
-    # Make sure we strip all comments and options (e.g "--extra-index-url")
-    # that arise from a modified pip.conf file that configure global options
-    # when running kedro build-reqs
-    requires = []
-    for line in f:
-        req = line.split("#", 1)[0].strip()
-        if req and not req.startswith("--"):
-            requires.append(req)
+def main():
+    configure_project(Path(__file__).parent.name)
+    run()
 
-setup(
-    name="allegro_test",
-    version="0.1",
-    packages=find_packages(exclude=["tests"]),
-    entry_points={"console_scripts": [entry_point]},
-    install_requires=requires,
-    extras_require={
-        "docs": [
-            "sphinx~=3.4.3",
-            "sphinx_rtd_theme==0.5.1",
-            "nbsphinx==0.8.1",
-            "nbstripout==0.3.3",
-            "recommonmark==0.7.1",
-            "sphinx-autodoc-typehints==1.11.1",
-            "sphinx_copybutton==0.3.1",
-            "ipykernel~=5.3",
-        ]
-    },
-)
+
+if __name__ == "__main__":
+    main()
