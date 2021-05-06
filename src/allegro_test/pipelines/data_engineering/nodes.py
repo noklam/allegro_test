@@ -34,11 +34,10 @@ PLEASE DELETE THIS FILE ONCE YOU START WORKING ON YOUR OWN PROJECT!
 from typing import Any, Dict
 
 import pandas as pd
-
+import logging
 from datetime import datetime
 from clearml import Task
 
-task = Task.init(project_name='examples', task_name='hello world')
 
 def split_data(data: pd.DataFrame, example_test_data_ratio: float) -> Dict[str, Any]:
     """Node for splitting the classical Iris data set into training and test
@@ -49,7 +48,9 @@ def split_data(data: pd.DataFrame, example_test_data_ratio: float) -> Dict[str, 
     """
 
 
-
+    task = Task.init(project_name='examples', task_name='hello world  run withoin kedro')
+    print("stdout log by print")
+    logging.warning("Logging.warning: Hello World")
 
 
     data.columns = [
